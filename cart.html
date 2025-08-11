@@ -1,0 +1,87 @@
+<!-- --- START OF COMPLETE cart.html --- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP CORNER - Shopping Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Links to the ONE stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation (same structure as index page) -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.postimg.cc/T1jD9N2T/logo.png" alt="Company Logo" class="logo-icon">
+                <span class="logo-text">VIP Corner</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+                <li><a href="index.html#best-sellers">Best Sellers</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-link" style="background-color: var(--gold); color: white;">
+                        Cart
+                        <span class="cart-counter" id="cart-counter-display">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="section cart-page-section">
+        <div class="container">
+            <h2 class="section-title">Your Shopping Cart</h2>
+            <!-- This is the root element for our cart script -->
+            <div id="cart-root" class="cart-container">
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be dynamically inserted here by script.js -->
+                </div>
+                <!-- This footer is hidden by default if cart is empty -->
+                <div id="cart-footer" style="display: none;">
+                    <div id="cart-summary" class="cart-summary"></div>
+                    <div class="cart-actions">
+                        <a href="index.html" class="cart-button continue-shopping">Continue Shopping</a>
+                        <a href="#" class="cart-button checkout">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Order Info Section -->
+<section class="section contact-whatsapp-highlight" style="text-align: center; background-color: #fff7e6; padding: 2rem;">
+    <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">Want to place your order?</h3>
+    <p style="font-size: 1.1rem; color: #555;">
+        Please contact our official <strong>VIP CORNER</strong> business WhatsApp number to confirm your dress choice.
+        <br>
+        Also, please <strong>screenshot the dress you chose</strong> and send it to us on WhatsApp.
+    </p>
+    <p style="font-size: 1.2rem; margin-top: 1rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" style="width: 20px; vertical-align: middle; margin-right: 8px;">
+        <a href="https://wa.me/8801701026223" target="_blank" style="color: #25D366; font-weight: bold; text-decoration: none;">
+            +8801701026223
+        </a>
+    </p>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 VIP CORNER. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Link to the ONE JavaScript file at the end -->
+    <script src="script.js"></script>
+</body>
+</html>
