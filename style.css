@@ -159,6 +159,31 @@ nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.1)
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
 
+product-button.view-catalog {
+    background: linear-gradient(45deg, #6c757d, #5a6268);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.product-button.view-catalog:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #5a6268, #4a5258);
+}
+
+/* Adjust the existing add-to-cart button if needed */
+.product-button.add-to-cart {
+    padding: 0.8rem 1.5rem;
+}
+
 .product-price::before {
     content: "$";
 }
@@ -358,4 +383,5 @@ footer { background: var(--black); color: var(--white); text-align: center; padd
 .all-products-button:hover {
     background-color: #f2f2f2;
 }
+
 
