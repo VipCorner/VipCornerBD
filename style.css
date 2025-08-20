@@ -213,6 +213,8 @@ nav {
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    flex-wrap: wrap;
+    min-height: 500px; /* Adjust as needed */
     position: relative; 
     overflow: hidden; 
 }
