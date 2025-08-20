@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP CORNER - All Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation (index.html এর মতোই) -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.postimg.cc/T1jD9N2T/logo.png" alt="Company Logo" class="logo-icon">
+                <span class="logo-text">VIP Corner</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#new-arrivals">New Arrivals</a></li>
+                <li><a href="index.html#best-sellers">Best Sellers</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li>
+                    <a href="cart.html" class="cart-link" style="background-color: var(--gold); color: white;">
+                        Cart
+                        <span class="cart-counter" id="cart-counter-display">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>KALAMKARI PASHMINA</h1>
+        <p>pure cotton modal printed with embroidery, <br> cotton solid, pure chiffon digitally printed Cotton Salwar Kameez</p>
+    </div>
+</section>
+
+<div class="product-container"></div>
+
+ <!-- Left Side: Images -->
+  <div class="gallery">
+    <img src="https://kapdavilla.com/images/product/sub_images/2022/12/varsha-kalamkari-winter-wear-pashmina-festive-wear-salwar-kameez-dealer-18-2022-12-05_12_16_58.jpeg" alt="Image 1">
+    <img src="https://kapdavilla.com/images/product/sub_images/2022/12/varsha-kalamkari-winter-wear-pashmina-festive-wear-salwar-kameez-dealer-19-2022-12-05_12_16_58.jpeg" alt="Image 2">
+    <img src="https://kapdavilla.com/images/product/sub_images/2022/12/varsha-kalamkari-winter-wear-pashmina-festive-wear-salwar-kameez-dealer-3-2022-12-05_12_16_57.jpeg" alt="Image 3">
+    <img src="https://kapdavilla.com/images/product/sub_images/2022/12/varsha-kalamkari-winter-wear-pashmina-festive-wear-salwar-kameez-dealer-5-2022-12-05_12_16_57.jpeg" alt="Image 4">
+  </div>
+
+  <!-- Right Side: Specification Table -->
+  <div class="spec-table">
+    <h2>KALAMKARI PASHMINA</h2>
+    <table>
+      <tr><th>Date</th><td>4th Feb 2023</td></tr>
+      <tr><th>Name</th><td>KALAMKARI PASHMINA</td></tr>
+      <tr><th>SKU</th><td>kv-25040</td></tr>
+      <tr><th>Pieces</th><td>1 Piece (MOQ : 1 Set)</td></tr>
+      <tr><th>Rate</th><td>Tk 3450/ Per Piece</td></tr>
+      <tr><th>Weight</th><td>4 KG</td></tr>
+      <tr><th>Top</th><td>pure cotton modal printed with embroidery</td></tr>
+      <tr><th>Bottom</th><td>cotton solid</td></tr>
+      <tr><th>Dupatta</th><td>pure chiffon digitally printed</td></tr>
+      <tr><th>Type</th><td>Cotton Salwar Kameez</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<style>
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Left: images, Right: table */
+  gap: 30px;
+  align-items: start;
+}
+
+/* Image Styling */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.gallery img {
+  max-width: 100%;
+  aspect-ratio: 660 / 464;
+  object-fit: contain;
+  background-color: #fff;
+  border: 3px solid gold;
+  border-radius: 8px;
+  padding: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Table Styling */
+.spec-table h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #b8860b;
+  font-family: 'Playfair Display', serif;
+}
+
+.spec-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+
+.spec-table th {
+  text-align: left;
+  background-color: #FE7F13;
+  color: #fdfdfd;
+  padding: 8px;
+  border: 1px solid #FE7F13;
+  width: 150px;
+}
+
+.spec-table td {
+  padding: 8px;
+  border: 1px solid #FE7F13;
+}
+</style>
+
+
+<footer>
+        <div class="container">
+            <p>&copy; 2024 VIP CORNER. All rights reserved. | Premium Ladies Fashion</p>
+        </div>
+    </footer>
+    
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+
+    <!-- REMOVED the problematic inline style block from here -->
+
+</body>
