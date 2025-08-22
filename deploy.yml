@@ -1,0 +1,81 @@
+name: Deploy to IIS Server
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup IIS Website Directory
+      run: |
+        # Website directory create করুন যদি না exists
+        $websitePath = "C:\vipcorner-website"
+        if (!(Test-Path -Path $websitePath)) {
+            New-Item -ItemType Directory -Path $websitePath -Force
+        }
+        
+        # Permission set করুন
+        icacls $websitePath /grant "Everyone:(OI)(CI)F"
+
+    - name: Clean existing files
+      run: |
+        $websitePath = "C:\vipcorner-website"
+        if (Test-Path -Path $websitePath) {
+            Remove-Item -Path "$websitePath\*" -Recurse -Force -ErrorAction SilentlyContinue
+        }
+
+    - name: Copy new files
+      run: |
+        $websitePath = "C:\vipcorner-website"
+        Copy-Item -Path ".\*" -Destination $websitePath -Recurse -Force
+        echo "All website files copied successfully!"
+
+    - name: Configure IIS Website
+      run: |
+        # IIS Website create করুন
+        Import-Module WebAdministration
+        
+        $siteName = "VipCornerWebsite"
+        $physicalPath = "C:\vipcorner-website"
+        
+        # Check if site already exists
+        if (Get-Website -Name $siteName -ErrorAction SilentlyContinue) {
+            echo "Website already exists, updating..."
+            Set-WebConfigurationProperty -Filter "/system.applicationHost/sites/site[@name='$siteName']/application/virtualDirectory[@path='/']" -Name physicalPath -Value $physicalPath
+        } else {
+            echo "Creating new website..."
+            New-Website -Name $siteName -PhysicalPath $physicalPath -Port 80 -Force
+        }
+        
+        # Set default document (index.html)
+        Set-WebConfigurationProperty -Filter "/system.webServer/defaultDocument" -Name "enabled" -Value "true"
+        Set-WebConfigurationProperty -Filter "/system.webServer/defaultDocument/files" -Name "clear" -Value "true"
+        Add-WebConfigurationProperty -Filter "/system.webServer/defaultDocument/files" -Name "." -Value @{value='index.html'}
+
+    - name: Start IIS Website
+      run: |
+        $siteName = "VipCornerWebsite"
+        Start-Website -Name $siteName
+        echo "Website started successfully!"
+
+    - name: Verify deployment
+      run: |
+        # Check if index.html exists
+        if (Test-Path -Path "C:\vipcorner-website\index.html") {
+            echo "✅ index.html found - deployment successful!"
+        } else {
+            echo "❌ index.html not found - deployment failed!"
+            exit 1
+        }
+        
+        # Check website status
+        iisreset /status
